@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict Leaf Disease</title>
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #c2f0c2, #005f3f);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 950px;
+            background: #006b3f;
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            padding: 20px;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .container img {
+            width: 80px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .container h1 {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        .file-upload {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+            gap: 30px;
+            background-color: #c2c2c2;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .file-upload label,
+        #fileName {
+            font-size: 1rem;
+            color: white;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 60px;
+        }
+
+        .btn {
+            padding: 20px 30px;
+            font-size: 1rem;
+            color: white;
+            background-color:  #004a2f;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #9a4bd2;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #004a2f;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="{{ url_for('static', filename='e-punla logo.png') }}" alt="e-Punla Logo" style="width: 60%; height: 60%; position: relative;">
+        <!-- <h1>PREDICT LEAF DISEASE</h1> -->
+        <form action="{{ url_for('upload_image') }}" method="POST" enctype="multipart/form-data">
+            <div class="file-upload">
+                <label for="fileInput" class="btn">Choose File</label>
+                <input type="file" id="fileInput" name="file" accept="image/*" required>
+                <span id="fileName">No File Chosen</span>
+                <br> <br>
+            </div>
+            <div class="buttons">
+                <br>
+                <button type="submit" class="btn">PREDICT LEAF DISEASE</button>
+                <a href="{{ url_for('dashboard') }}" class="btn">BACK TO DASHBOARD</a>
+            </div>
+        </form>
+    </div>
+    <footer>
+        &copy; 2024 E-Punla. All rights reserved.
+    </footer>
+    <script>
+        // Update file name dynamically
+        document.getElementById('fileInput').addEventListener('change', function () {
+            const fileName = this.files[0]?.name || "No File Chosen";
+            document.getElementById('fileName').textContent = fileName;
+        });
+    </script>
+</body>
+</html>
