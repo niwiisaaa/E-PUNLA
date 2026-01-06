@@ -1,6 +1,6 @@
 # E-PUNLA 🌱
 
-**E-PUNLA** is a machine learning–based leaf disease prediction system developed as an academic project under the **Bachelor of Science in Computer Science** program. The application aims to assist in the early detection of plant diseases by analyzing leaf images and providing fast, accessible predictions.
+**E-PUNLA** is a machine learning–based leaf disease prediction system developed as an academic project for Sofware Engineering 1. The application aims to assist in the early detection of plant diseases by analyzing leaf images and providing fast, accessible predictions.
 
 ---
 
